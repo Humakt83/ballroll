@@ -8,28 +8,21 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public Text scoreText;
     public Text winText;
-    //private Rigidbody rigidBody;
     private int scoreCount;    
 
     private void Start() {
-        //rigidBody = GetComponent<Rigidbody>();
         scoreCount = 0;
         SetScoreText();
         winText.text = "";
     }
-
-    /**private void FixedUpdate() {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rigidBody.AddForce(movement * speed);
-    }**/
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Pickup")) {
             other.gameObject.SetActive(false);
             scoreCount++;
             SetScoreText();
+        } else if (other.gameObject.CompareTag("Danger")) {
+            winText.text = "Game Over!";
         }
     }
 

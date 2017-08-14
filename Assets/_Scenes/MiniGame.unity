@@ -399,6 +399,8 @@ MonoBehaviour:
   pickupPrefab: {fileID: 1753974558967606, guid: 6209e8decb3a0714689e3579db1d6bb1,
     type: 2}
   floor: {fileID: 152008281}
+  dangerPrefab: {fileID: 1194626060452604, guid: 0cfadab335f67104ab423e87d76956cf,
+    type: 2}
 --- !u!1 &324886975
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,17 +6,24 @@ public class Pickup : MonoBehaviour {
 
     public GameObject pickupPrefab;
     public GameObject floor;
+    public GameObject dangerPrefab;
 
     private int pickupAmount = 20;
+    private int dangerAmount = 5;    
 
     void Start () {
-        System.Random random = new System.Random();
-		for (int i = 0; i < pickupAmount; i++) {
-            GameObject pickup = Instantiate(pickupPrefab);
-            pickup.transform.position = randomPosition(random);            
-            pickup.transform.parent = floor.transform;
-        }
+        createObjects(pickupAmount, pickupPrefab);
+        createObjects(dangerAmount, dangerPrefab);
 	}
+
+    private void createObjects(int amount, GameObject objectType) {
+        System.Random random = new System.Random();
+        for (int i = 0; i < amount; i++) {
+            GameObject created = Instantiate(objectType);
+            created.transform.position = randomPosition(random);
+            created.transform.parent = floor.transform;
+        }
+    }
 
     private Vector3 randomPosition(System.Random random) {
         float positionZ = (float)(random.NextDouble() * 16.0) - 8.0f;
