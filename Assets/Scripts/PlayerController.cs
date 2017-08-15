@@ -22,14 +22,19 @@ public class PlayerController : MonoBehaviour {
             scoreCount++;
             SetScoreText();
         } else if (other.gameObject.CompareTag("Danger")) {
-            winText.text = "Game Over!";
+            GameOver("Game Over!");
         }
     }
 
     private void SetScoreText() { 
         scoreText.text = "Score: " + scoreCount;
         if (scoreCount >= 12) {
-            winText.text = "Victory";
+            GameOver("Victory!");
         }
+    }
+
+    private void GameOver(string text) {
+        winText.text = text;
+        this.gameObject.SetActive(false);
     }
 }
