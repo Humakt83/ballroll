@@ -5,7 +5,6 @@ using UnityEngine;
 public class GroundController : MonoBehaviour {
 
     private readonly float TILT = 30.0f;
-    private readonly float MINIMUM_AXIS_TILT = -30.0f;
 
     private void FixedUpdate() {
         float tiltAroundZ = Input.GetAxis("Horizontal") * TILT;
